@@ -20,7 +20,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-// @EnableMethodSecurity
+@EnableMethodSecurity
 public class SecurityConfig {
 
         @Autowired
@@ -40,6 +40,7 @@ public class SecurityConfig {
 
                 http.authorizeHttpRequests((requests) -> requests
                                 .requestMatchers("/api/addUser").permitAll()
+                                .requestMatchers("/api/hello").permitAll()
                                 .anyRequest().authenticated()
 
                 );
